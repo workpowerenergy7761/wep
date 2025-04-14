@@ -609,11 +609,9 @@ async def upload(bot: Client, m: Message):
             #elif '/master.mpd' in url:
              #id =  url.split("/")[-2]
              #url = f"https://player.muftukmall.site/?id={id}"
-            elif "/master.mpd" in url or "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
+            elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
              url = f"https://anonymouspwplayer-b99f57957198.herokuapp.com/pw?url={url}?token={raw_text4"
-            #elif '/master.mpd' in url:
-             #id =  url.split("/")[-2]
-             #url = f"https://dl.alphacbse.site/download/{id}/master.m3u8"
+    
             
         
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
