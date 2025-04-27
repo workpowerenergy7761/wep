@@ -51,7 +51,7 @@ OWNER_ID = 8144269730 # Replace with the actual owner's user ID
 # List of sudo users (initially empty or pre-populated)
 SUDO_USERS = [1226915008,7341059064,8144269730,6440249117,6148865829,5817712634,7615363859,1511257208,5486913681,7615363859]
 
-AUTH_CHANNEL = -1002539302851
+AUTH_CHANNEL = -1002411473528
 
 # Function to check if a user is authorized
 def is_authorized(user_id: int) -> bool:
@@ -591,8 +591,9 @@ async def upload(bot: Client, m: Message):
              #id =  url.split("/")[-2]
              #url = f"https://anonymouspwplayer-b99f57957198.herokuapp.com/pw?url={url}?token={raw_text4}"
             #url = f"https://madxapi-d0cbf6ac738c.herokuapp.com/{id}/master.m3u8?token={raw_text4}"
-            elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
-             url = f"https://anonymouspwplayer-b99f57957198.herokuapp.com/pw?url={url}?token={pw_token}"
+            elif '/master.mpd' in url:
+             vid_id =  url.split("/")[-2]
+             url = f"https://as-multiverse-b0b2769da88f.herokuapp.com/{vid_id}/master.m3u8?token={pw_token}"
             
         
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
