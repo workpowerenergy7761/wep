@@ -51,7 +51,7 @@ OWNER_ID = 8144269730 # Replace with the actual owner's user ID
 # List of sudo users (initially empty or pre-populated)
 SUDO_USERS = [1226915008,7341059064,8144269730,6440249117,6148865829,5817712634,7615363859,1511257208,5486913681,7615363859,7080838404]
 
-AUTH_CHANNEL = -1002539302851
+AUTH_CHANNEL = -1002477348442
 
 # Function to check if a user is authorized
 def is_authorized(user_id: int) -> bool:
@@ -140,7 +140,7 @@ random_image_url = random.choice(image_urls)
 caption = (
         "**ʜᴇʟʟᴏ👋**\n\n"
         "☆ **ɪ ᴀᴍ ᴛxᴛ ᴛᴏ ᴠɪᴅᴇᴏ ᴜᴘʟᴏᴀᴅᴇʀ ʙᴏᴛ.**\n"
-        "☆ **ғᴏʀ ᴜsᴇ ᴍᴇ sᴇɴᴅ /JB.\n"
+        "☆ **ғᴏʀ ᴜsᴇ ᴍᴇ sᴇɴᴅ /team.\n"
         "☆ **ғᴏʀ ɢᴜɪᴅᴇ sᴇɴᴅ /help."
 )
     
@@ -419,7 +419,7 @@ async def list_users(client: Client, msg: Message):
 async def help_command(client: Client, msg: Message):
     help_text = (
         "`/start` - Start the bot⚡\n\n"
-        "`/JB` - Download and upload files (sudo)🎬\n\n"
+        "`/team` - Download and upload files (sudo)🎬\n\n"
         "`/restart` - Restart the bot🔮\n\n" 
         "`/stop` - Stop ongoing process🛑\n\n"
         "`/cookies` - Upload cookies file🍪\n\n"
@@ -433,7 +433,7 @@ async def help_command(client: Client, msg: Message):
     await msg.reply_text(help_text)
 
 # Upload command handler
-@bot.on_message(filters.command(["JB"]))
+@bot.on_message(filters.command(["team"]))
 async def upload(bot: Client, m: Message):
     if not is_authorized(m.chat.id):
         await m.reply_text("**🚫You are not authorized to use this bot.**")
@@ -591,9 +591,8 @@ async def upload(bot: Client, m: Message):
              #id =  url.split("/")[-2]
              #url = f"https://anonymouspwplayer-b99f57957198.herokuapp.com/pw?url={url}?token={raw_text4}"
             #url = f"https://madxapi-d0cbf6ac738c.herokuapp.com/{id}/master.m3u8?token={raw_text4}"
-            elif '/master.mpd' in url:
-             vid_id =  url.split("/")[-2]
-             url = f"https://master-api-v3.vercel.app/pw/m3u8?url=https://d1d34p8vz63oiq.cloudfront.net/{vid_id}/master.mpd&token={pw_token}"
+            elif "d1d34p8vz63oiq" in url or "sec1.pw.live" in url:
+             url = f"https://pwplayer-38c1ae95b681.herokuapp.com/pw?url={url}&token={pw_token}"
             
         
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
@@ -645,13 +644,13 @@ async def upload(bot: Client, m: Message):
 
             try:  
 
-                cc = f'**[🎬] 𝗩𝗶𝗱_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.({res}).@DOCTOR_JB.mkv\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
-                #cpw = f'**[🎬] 𝗩𝗶𝗱_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.({res}).@DOCTOR_JB.mkv\n\n\n**🔗𝗩𝗶𝗱𝗲𝗼 𝗨𝗿𝗹 ➤ <a href="{url}">__**Click Here to Watch Video**__</a>**\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
-                #cyt = f'**[🎬] 𝗩𝗶𝗱_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.({res}).@DOCTOR_JB.mp4\n\n\n**🔗𝗩𝗶𝗱𝗲𝗼 𝗨𝗿𝗹 ➤ <a href="{url}">__**Click Here to Watch Video**__</a>**\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
-                cpvod = f'**[🎬] 𝗩𝗶𝗱_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.({res}).@DOCTOR_JB.mkv\n\n\n**🔗𝗩𝗶𝗱𝗲𝗼 𝗨𝗿𝗹 ➤ <a href="{url}">__**Click Here to Watch Video**__</a>**\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
-                cimg = f'**[📁] 𝗣𝗱𝗳_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.@DOCTOR_JB.jpg\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
-                cczip = f'**[📁] 𝗣𝗱𝗳_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.@DOCTOR_JB.zip\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
-                cc1 = f'**[📁] 𝗣𝗱𝗳_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.@DOCTOR_JB.pdf\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
+                cc = f'**[🎬] 𝗩𝗶𝗱_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.({res}). STUDENTS💙.mkv\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
+                #cpw = f'**[🎬] 𝗩𝗶𝗱_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.({res}).STUDENTS💙.mkv\n\n\n**🔗𝗩𝗶𝗱𝗲𝗼 𝗨𝗿𝗹 ➤ <a href="{url}">__**Click Here to Watch Video**__</a>**\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
+                #cyt = f'**[🎬] 𝗩𝗶𝗱_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.({res}).STUDENTS💙.mp4\n\n\n**🔗𝗩𝗶𝗱𝗲𝗼 𝗨𝗿𝗹 ➤ <a href="{url}">__**Click Here to Watch Video**__</a>**\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
+                cpvod = f'**[🎬] 𝗩𝗶𝗱_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.({res}).STUDENTS💙.mkv\n\n\n**🔗𝗩𝗶𝗱𝗲𝗼 𝗨𝗿𝗹 ➤ <a href="{url}">__**Click Here to Watch Video**__</a>**\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
+                cimg = f'**[📁] 𝗣𝗱𝗳_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.STUDENTS💙.jpg\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
+                cczip = f'**[📁] 𝗣𝗱𝗳_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.STUDENTS💙.zip\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
+                cc1 = f'**[📁] 𝗣𝗱𝗳_𝗜𝗱 :** {str(count).zfill(3)}.**\n\n\n**☘️𝗧𝗶𝘁𝗹𝗲 𝗡𝗮𝗺𝗲** ➤ {name1}.STUDENTS💙.pdf\n\n\n**<pre><code>📚𝗕𝗮𝘁𝗰𝗵 𝗡𝗮𝗺𝗲** ➤ **{b_name}</code></pre>**\n\n\n**📥 𝗘𝘅𝘁𝗿𝗮𝗰𝘁𝗲𝗱 𝗕𝘆** ➤  **{raw_text3}**'
           
                 if "drive" in url:
                     try:
